@@ -432,6 +432,11 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="row">
+			<button type="button" class="btn btn-primary m-auto">
+				Update Profile
+			</button>
+		</div>
 	</form>
 	@else
 asdasd
