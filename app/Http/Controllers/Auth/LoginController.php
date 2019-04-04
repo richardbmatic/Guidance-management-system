@@ -55,6 +55,11 @@ class LoginController extends Controller
                     $this->redirectTo = '/admin';
                     return $this->redirectTo;
                     break;
+
+                case 'student':
+                    $this->redirectTo = '/student';
+                    return $this->redirectTo;
+                    break;
                 
                 default:
                     return redirect('/');

@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +12,9 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
@@ -24,10 +26,14 @@ Route::get('/admin', function(){
 	echo "Hello Admin";
 })->middleware('auth','admin');
 
-Route::get('/agent', function(){
-	echo "Hello Agent";
-})->middleware('auth','agent');
+Route::get('/student', function(){
 
-Route::get('/customer', function(){
-	echo "Hello Customer";
-})->middleware('auth','customer');
+    return view('student');
+})->middleware('auth','student');
+
+Route::get('/profile/create', function(Request $request){
+	$data = $request->session()->all();
+	preg_match('/\w+$/', $data['_previous']['url'], $role);
+
+    return view('/layouts/profile/create', ['role' => $role[0]]);
+});

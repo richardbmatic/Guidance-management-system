@@ -66,9 +66,9 @@
                          
                             <div class="col-md-6">
                                 <select name="role" class="form-control" >
-                                    <option value="admin">Admin</option>
-                                    <option value="agent">Agent</option>
-                                    <option value="customer">Customer</option>
+                                    <option value="admin">Teacher</option>
+                                    <option value="admin">Services Officer</option>
+                                    <option value="student">Student</option>
                                 </select> 
                             </div>
                         </div>

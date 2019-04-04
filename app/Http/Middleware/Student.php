@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class Agent
+class Student
 {
     /**
      * Handle an incoming request.
@@ -14,13 +14,13 @@ class Agent
      * @param  \Closure  $next
      * @return mixed
      */
-    function handle($request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 'agent') {
+        if (Auth::check() && Auth::user()->role == 'student') {
             return $next($request);
         }
-        elseif (Auth::check() && Auth::user()->role == 'customer') {
-            return redirect('/customer');
+        elseif (Auth::check() && Auth::user()->role == 'agent') {
+            return redirect('/agent');
         }
         else {
             return redirect('/admin');
