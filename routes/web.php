@@ -28,12 +28,14 @@ Route::get('/admin', function(){
 
 Route::get('/student', function(){
 
-    return view('student');
+    return view('/layouts/profile/student');
 })->middleware('auth','student');
 
-Route::get('/profile/create', function(Request $request){
-	$data = $request->session()->all();
-	preg_match('/\w+$/', $data['_previous']['url'], $role);
+// Route::get('/profile/create', function(Request $request){
+// 	$data = $request->session()->all();
+// 	preg_match('/\w+$/', $data['_previous']['url'], $role);
 
-    return view('/layouts/profile/create', ['role' => $role[0]]);
-});
+//     return view('/layouts/profile/create', ['role' => $role[0]]);
+// });
+
+Route::resource('profile','ProfileController');
